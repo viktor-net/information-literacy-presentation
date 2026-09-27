@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="description" content="Информационная компетентность и информационная культура личности преподавателя — презентация" />
+    <meta name="color-scheme" content="dark light" />
+    <title>Информационная компетентность и информационная культура личности преподавателя</title>
+    <script>
+      // Ставим тему до отрисовки, чтобы не было вспышки светлого/тёмного.
+      // По умолчанию — как в системе; если определить нечем, светлая.
+      // Здесь же ставим иконку вкладки: браузеры кешируют favicon
+      // агрессивно, и сменить его позже, уже нарисованный неправильный, нельзя.
+      (function () {
+        var t = 'light'
+        try {
+          var p = localStorage.getItem('deck-theme') || 'system'
+          t =
+            p === 'dark' || p === 'light'
+              ? p
+              : typeof window.matchMedia === 'function' &&
+                  window.matchMedia('(prefers-color-scheme: dark)').matches
+                ? 'dark'
+                : 'light'
+        } catch (e) {
+          t = 'light'
+        }
+        document.documentElement.dataset.theme = t
+        document.documentElement.style.colorScheme = t
+
+        var svg =
+          t === 'dark'
+            ? "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='#0e1220'/><path d='M12 8.5 23 15 12 21.5Z' fill='#7ba3ff'/><rect x='8' y='24' width='16' height='2.5' rx='1.25' fill='#2ed0ce'/></svg>"
+            : "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='#fff' stroke='#d8deee'/><path d='M12 8.5 23 15 12 21.5Z' fill='#3b5fd0'/><rect x='8' y='24' width='16' height='2.5' rx='1.25' fill='#0e8f88'/></svg>"
+        var icon = document.createElement('link')
+        icon.rel = 'icon'
+        icon.href = 'data:image/svg+xml,' + encodeURIComponent(svg)
+        document.head.appendChild(icon)
+      })()
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
